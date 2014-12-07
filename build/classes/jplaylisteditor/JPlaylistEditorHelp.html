@@ -1,0 +1,179 @@
+<!-- 
+    Document   : JPlaylistEditorHelp
+    Created on : Apr 11, 2009, 6:19:52 PM
+    Author     : Alan Jordan
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>JPlaylist Editor Help</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  </head>
+  <body>
+     <h2>JPlaylist Editor Help</h2>
+    
+
+    <div>
+    <p>JPlaylist Editor is a Java application that 
+    I wrote to generate play lists for JPLAYMini memory player software 
+    (or any other music player that supports cue sheets). The application will 
+    start at any directory you specify, and add music files to lists so they 
+    can be chosen for playlists.  Playlists can be saved to be loaded at another time,
+    or can be sent directly to the JPlay application.</p>
+
+    <p>JPlay supports M#U playlists, so behind the scenes this application will write to 
+    an M3U file which is then automatically sent to JPLAYmini if it is already running.  </p>
+    
+    <p>This application is useful for music libraries comprising of tagged FLAC and Apple Lossless files. 
+    WAV and AIFF files are also fine if you have ripped your CDs to individual music files 
+    per song, and if you have a directory structure something like <br>
+    <b>Library Root\Artist 1\Album 1</b><br>
+    <b>Library Root\Artist 1\Album 2</b><br>
+    <b>Library Root\Artist 2\Album 1...</b><br>
+	or<br>
+    <b>Library Root\Genre\Artist 1\Album 1</b><br>
+    <b>Library Root\Genre\Artist 1\Album 2</b><br>
+    <b>Library Root\Genre\Artist 2\Album 1...</b><br>
+    </p>
+    
+    <p>The program currently supports WAV, FLAC, AIFF, and M4A (Apple Lossless) file types.  
+    You can choose to read embedded tags in FLAC and M4A files where available instead of having the application attempt to
+    discern the tags from the file system directory structure.</p>
+    
+    <p><b>Directions</b></p>
+    <ol>
+        <li>Set settings accordingly in the <b>Settings</b> menu (see below).</li>
+        <li>Press the "Set Playlist Directory" button and choose or create a directory to store your play list files.</li>
+        <li>Next to the empty "Libraries" list, press the "Add" button and browse to the root folder of your music library,
+        then give the library a name. The application will show status as it searches through
+        your music directory.  If successful, you can then choose artists / albums to populate into the 
+        <b>Album</b> list by selecting the beginning letter of the artist's name in the Alphabet 
+        radio button box.</li>
+        <li>Selecting an item in the <b>Album</b> list will populate the <b>Track</b> list.</li>
+        <li>Selecting one or more tracks in the <b>Track</b> list will enable the <b>Right Arrow</b> 
+        button that will copy any selected tracks into the <b>Playlist</b> list.
+        Double clicking on a track in the track list will also send it to the play list.</li>
+        <li>Build a play list of tracks by different artists and albums by repeating the process.</li>
+        <li>Change the order of tracks in the <b>Playlist</b> list by selecting a track and  clicking 
+        the <b>Up Arrow</b> or <b>Down Arrow</b> buttons.</li>
+        <li>When you have all the tracks as you want them in the <b>Playlist</b> list, 
+        you can save the play list by clicking on the <b>Save</b> button and choosing a 
+        name for your new play list. The application will automatically give a ".m3u" 
+        file extension if you type in a name and skip the ".m3u" extension. You can 
+        also choose to overwrite an existing play list if one exists.  The status 
+        label will show that the play list has been saved if successful.  The play list
+        is now available to be opened in JPlay.</li>
+        <li>If you have set the setting to send play lists to JPlay (see below), pressing the
+        play button will load the play list in JPlay as long as JPLAYmini is already started.  Play lists
+        don't have to be saved first, but save the play list if you will want to load it another time.<br>
+        </li>
+        <li>Press the <b>Load</b> button to load up an existing play list for editing or playing within JPlay.</li>
+    </ol>
+
+    <p><b>Libraries List</b></p>
+    <p>
+    If you keep your music under different top-level folders on your hard drive, you can
+    add a Library to the Libraries list for each top-level folder and give each Library
+    its own name.  Reasons for keeping separate libraries might be that you want to keep
+    music captured at a 96 kHz separate from music captured at a 44.1 kHz sampling rate,
+    or you might want to keep WAV files separate from FLAC files.  To add a library, press
+    the <b>Add</b> button next to the Libraries list. A dialog box will appear, by which
+    you can choose the top-level folder where your music is located.  After choosing the folder,
+    another dialog box will appear asking you to name the library.<br><br>
+
+    The program will cache the library between sessions, but if you ever add more music to a
+    library, you can add the new music by selecting that particular library in the <b>Libraries</b>
+    list and pressing the <b>Refresh Library</b> button.  The application will reread all the folders
+    in that library add any music found.<br><br>
+
+    You can remove a library by selecting a library from the Libraries list and pressing the
+    <b>Remove</b> button.<br><br>
+
+    You can build a single play list out of songs from multiple libraries if you wish.
+    </p>
+    <p><b>Settings</b></p>
+    <ul>
+         <li><b>Remove Track Number and File Extension from Track Title</b>:
+         This option will attempt to remove the trailing file extension and
+         leading track number from the <b>Track Title</b> field.  When this
+         option is used in conjunction with the <b>Use Embedded Tags when Processing
+         FLAC and M4A</b> option, only files that do not contain embedded tags
+         will be affected.
+         </li>
+         <li><b>Parse Artist and Album from a Single Parent Folder</b>:
+         Use this option if you set up your music library using <b>single folders</b>
+         named similar to <b>Artist Name - Album Name</b>.  When setting this option,
+         a dialog box will appear asking you to enter the characters that separate
+         artist from album title.  When you answer, make sure you enter blank spaces
+         as well as other separator characters.  For example, lets say one of your
+         folders containing songs was named <b>Pat Metheny Group - The First Circle</b>,
+         you would enter " - " (space dash space without the quotes).  The application will
+         attempt to set the Artist and Album Title fields from the single folder name.
+         </li>
+         <li><b>Show File Type in Track List</b>: Use this option if you want to see the
+         type of music file (wav, flac, m4a, aiff) in the Tracks list.  This option will
+         prepend the file type to the track name.  Some people mix
+         different type of files in the same music library, but JPlay will only play
+         FLAC, WAV, M4A and AIFF files.  This program should filter out all file types 
+         other than those listed above, but you can use this option just to make sure.
+         </li>
+         <li><b>Enable Sending Playlists to JPlay</b>: Clicking this option will
+         bring up a file chooser dialog box with which you should browse to and select
+         the JPLAYmini.exe file in your file system.  By default, this file can be found at 
+        <b>C:\Program Files\JPlay\JPLAYmini.exe</b>.  This will enable the <b>Play</b>
+        button so that play lists can be sent directly to JPlay without being saved first.
+        </li>
+        <li><b>Use Embedded Tags when Processing FLAC and MP3</b>: By default, 
+        the application will determine the cue sheet information from the music 
+        library directory structure and file names.  Check this option if you
+        would like the application to attempt to use information from the tags
+        embedded in FLAC and M4A files instead of folder and file names. This 
+        option will increase processing time quite a bit because some FLAC files
+        contain album art as well. If there is an error reading from the
+        embedded tags for a specific music file, or if the tag is not available,
+        the application will revert to using folder and file names to get information
+        for that music file.  Note that the application does not read embedded tags
+        from AIFF nor WAV files.</li>
+        <li><b>Title Tracks "Artist - Title"</b>:
+        When reading embedded tags from FLAC and M4A files, this option will
+        set the track title to <b>Artist - Title</b> so that the artist will 
+        show up in the play list.
+        </li>
+        <li><b>Show Sampling Rate when Reading Embedded Tags</b>:  Use this option
+        if you want to prepend the file's sampling rate to the track name in the Tracks list.
+        </li>
+   </ul>
+    
+     
+<p><b>Network Use:</b></p>
+<ul>
+    <li>Do all the above steps on the computer that runs "Playlist JPLAY and is
+        hooked up to your stereo system.</li>
+    <li>Check "Settings" -> "Act as Server".  A Windows Firewall warning may 
+        appear, asking you to unblock the feature that the program will use.  
+        If you want to control JPLAY over the network, you will have to allow 
+        this.  The network status area will show the IP Address of the computer
+        (something like 192.168.0.137).  You will need to remember this number 
+        to plug into the client.</li>
+    <li>Download another copy of JPlaylistEditor to the computer with which you 
+        want to control the stereo from (the client), and unzip it.</li>
+    <li>Start the program either by double clicking the .jar file or the .bat file.</li>
+    <li>On the client, check "Settings" -> "Act as Client", and enter the IP 
+        Address you remembered above in the resulting pop-up box.</li>
+    <li>Any libraries set up on the server can be downloaded to the client by 
+        pressing the "Get" button.</li>
+    <li>Select a library, switch to "Playlist Editor" tab, create a playlist, 
+        and press the "Play" button.</li>
+</ul>
+    
+    
+    <p><b>Notes</b></p>
+    <ul>
+        <li>The application will remember your settings from the last time you 
+        ran it. It will also remember your music library, so you only need to 
+        reread your music library when music has been added or removed.</li>
+    </ul>
+
+    </div>  
+  </body>
+</html>
